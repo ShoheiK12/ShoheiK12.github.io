@@ -384,6 +384,11 @@ Projects
 /*-------------------------------------------
 Profile
 -------------------------------------------*/
+#profile .content {
+  text-align: left;
+  margin-top: 1rem;
+}
+
 .timeline {
   position: relative;
   margin: 2rem 0;
@@ -467,5 +472,6 @@ SP
   }
 
 }
+
 
 
