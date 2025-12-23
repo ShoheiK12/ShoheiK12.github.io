@@ -384,6 +384,37 @@ Projects
 /*-------------------------------------------
 Profile
 -------------------------------------------*/
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  border-left: 3px solid #3498db;
+}
+.timeline-item {
+  margin-bottom: 2rem;
+  position: relative;
+}
+.timeline-date {
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 0.3rem;
+}
+.timeline-content {
+  background: #f0f8ff;
+  padding: 1rem;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.1rem;
+  top: 0.3rem;
+  width: 12px;
+  height: 12px;
+  background: #3498db;
+  border-radius: 50%;
+}
 
 /*-------------------------------------------
 Contact
@@ -435,15 +466,6 @@ SP
     margin-right: 0;
   }
 
-  /*-------------------------------------------
-  Bicycle
-  -------------------------------------------*/
-  #bicycle ul {
-    flex-direction: column;
-  }
-  #bicycle li {
-    width: 100%;
-    margin-bottom: 30px;
-  }
 }
+
 
