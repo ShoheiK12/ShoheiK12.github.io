@@ -1,3 +1,8 @@
+:root {
+  --dark-color: #000;
+  --white-color: #fff;
+}
+
 * { 
   margin: 0;
   padding: 0;
@@ -71,6 +76,11 @@ li {
   height: 60px;              
   width: auto;
   display: block;
+}
+
+.dark-mode {
+  color: var(--white-color) !important;
+  background: var(--dark-color) !important;
 }
 
 /*-------------------------------------------
@@ -176,6 +186,11 @@ header.wrapper {
   padding: 0;
 }
 
+#icon {
+  width: 30px;
+  cursor: pointer;
+} 
+
 /*-------------------------------------------
 Nav
 -------------------------------------------*/
@@ -258,7 +273,7 @@ Mainvisual
 
 
 .scroll-icon .material-icons {
-  color: #fff;
+  color: orange;
 }
 
 /*-------------------------------------------
@@ -388,6 +403,7 @@ Profile
   text-align: center;
   margin-bottom: 2rem;
 }
+
 #profile .timeline {
   text-align: left;
 }
@@ -398,21 +414,31 @@ Profile
   padding-left: 2rem;
   border-left: 3px solid #3498db;
 }
+
 .timeline-item {
   margin-bottom: 2rem;
   position: relative;
 }
+
 .timeline-date {
   font-weight: bold;
   color: #3498db;
   margin-bottom: 0.3rem;
 }
+
 .timeline-content {
   background: #f0f8ff;
+  color: #333;
   padding: 1rem;
   border-radius: 6px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
+
+body.dark-mode .timeline-content {
+  background: #f0f8ff;
+  color: #333;
+}
+
 .timeline-item::before {
   content: "";
   position: absolute;
@@ -475,6 +501,7 @@ SP
   }
 
 }
+
 
 
 
