@@ -17,34 +17,35 @@ icon.onclick = () => {
     }
 };
 
-/* Snowfall animation */
-let snowContainer = document.querySelector(".snow-container");
+/* Starfall animation */
+let starContainer = document.querySelector(".star-container");
 
-const craeteSnow = () => {
-  /* Generate snow elements */
-  let snow = document.createElement("span");
-  snow.className = "snow";
+const craeteStar = () => {
+  /* Generate star elements */
+  let star = document.createElement("span");
+  star.className = "star";
 
   minSize = 5;
-  maxSize = 10;
+  maxSize = 30;
 
-  /* Assign the size of snow randomly */
-  let snowSize = Math.random() * (maxSize - minSize) + minSize;
+  /* Assign the size of star randomly */
+  let starSize = Math.random() * (maxSize - minSize) + minSize;
 
-  snow.style.width = snowSize + "px";
-  snow.style.height = snowSize + "px";
+  star.style.width = starSize + "px";
+  star.style.height = starSize + "px";
 
-  /* Assign the position of snowfall (calculate from left) */
-  snow.style.left = Math.random() * 100 + "%";
+  /* Assign the position of starfall (calculate from left) */
+  star.style.left = Math.random() * 100 + "%";
 
-  /* Put snow span in snow container*/
-  snowContainer.appendChild(snow);
+  /* Put star span in star container*/
+  starContainer.appendChild(star);
 
   /* Melt in 10 seconds */
   setTimeout(() => {
-    snow.remove();
+    star.remove();
   }, 10000);
 };
 
-/* Call createSnow function every 0.1 seconds for snowfall*/
-setInterval(craeteSnow, 100);
+/* Call createStar function every 0.1 seconds for starfall*/
+setInterval(craeteStar, 100);
+
