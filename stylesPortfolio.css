@@ -257,7 +257,7 @@ Mainvisual
     text-align: center;
 }
 
-.snow-container {
+.star-container {
   width: 100%;
   height: 100%;
   background-color: #ccc;
@@ -271,12 +271,12 @@ Mainvisual
   flex-direction: column;
 }
 
-body.dark-mode .snow-container {
+body.dark-mode .star-container {
   background-color: #222;
 }
 
 
-.snow-container h1 {
+.star-container h1 {
   color: white;
   font-size: 8rem;
   text-shadow: 1px 2px 15px black;
@@ -284,44 +284,45 @@ body.dark-mode .snow-container {
   margin-bottom: 80px;
 }
 
-.snow {
-  background-color: #fff;
-  border-radius: 50%;
+
+.star {
+  width: 100px;
+  height: 100px;
+  background-color: gold;
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
   position: absolute;
-  pointer-events: none;
-  animation: snowFall 10s linear;
+  animation: starFall 12s linear;
   z-index: 2;
+  pointer-events: none;
 }
 
-@keyframes snowFall {
+@keyframes starFall {
   0% {
     opacity: 0;
-    top: 0;
-    /* tranform: translateX -> Express the snow movement*/
-    transform: translateX(5px);
+    top: -10px;
+    transform: rotate(0deg) translateX(0);
   }
   10% {
     opacity: 1;
-    transform: translateX(-5px);
-  }
-  30% {
-    transform: translateX(5px);
-  }
-  40% {
-    transform: translateX(-5px);
   }
   50% {
-    transform: translateX(5px);
-  }
-  60% {
-    transform: translateX(-5px);
-  }
-  90% {
-    opacity: 1;
+    transform: rotate(180deg) translateX(10px);
   }
   100% {
     opacity: 0;
     top: 100vh;
+    transform: rotate(360deg) translateX(-10px);
   }
 }
 
@@ -572,6 +573,7 @@ SP
     margin-right: 0;
   }
 }
+
 
 
 
