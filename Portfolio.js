@@ -16,3 +16,35 @@ icon.onclick = () => {
     icon.src = "Image/moon.png";
     }
 };
+
+/* Snowfall animation */
+let snowContainer = document.querySelector(".snow-container");
+
+const craeteSnow = () => {
+  /* Generate snow elements */
+  let snow = document.createElement("span");
+  snow.className = "snow";
+
+  minSize = 5;
+  maxSize = 10;
+
+  /* Assign the size of snow randomly */
+  let snowSize = Math.random() * (maxSize - minSize) + minSize;
+
+  snow.style.width = snowSize + "px";
+  snow.style.height = snowSize + "px";
+
+  /* Assign the position of snowfall (calculate from left) */
+  snow.style.left = Math.random() * 100 + "%";
+
+  /* Put snow span in snow container*/
+  snowContainer.appendChild(snow);
+
+  /* Melt in 10 seconds */
+  setTimeout(() => {
+    snow.remove();
+  }, 10000);
+};
+
+/* Call createSnow function every 0.1 seconds for snowfall*/
+setInterval(craeteSnow, 100);
