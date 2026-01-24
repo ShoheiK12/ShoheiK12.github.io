@@ -538,6 +538,7 @@ Contact
 }
 
 .contact-details {
+ display: inline-block;
  font-size: 3vw; 
  margin: 0 20px;
 }
@@ -573,6 +574,7 @@ SP
     margin-right: 0;
   }
 }
+
 
 
 
