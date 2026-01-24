@@ -49,3 +49,51 @@ const craeteStar = () => {
 /* Call createStar function every 0.1 seconds for starfall*/
 setInterval(craeteStar, 100);
 
+/* Scroll animation */
+ScrollReveal({ reset: true, distance: '60px', duration: 2000, delay: 200 });
+ScrollReveal().reveal('.content img', { 
+  delay: 200, 
+  origin: 'left'
+});
+ScrollReveal().reveal('.content-title', { 
+  delay: 200, 
+  origin: 'right'});
+ScrollReveal().reveal('#top p', { 
+  delay: 200, 
+  origin: 'right',
+  distance: '60px' 
+});
+ScrollReveal().reveal('.section-title', {
+  delay: 200, 
+  origin: 'left'
+});
+ScrollReveal().reveal('.material-icons, .project-img', { 
+  delay: 200, 
+  origin: 'bottom'
+});
+ScrollReveal().reveal('#about .content', { 
+  delay: 200, 
+  origin: 'right',
+  distance: '60px' 
+});
+ScrollReveal().reveal('.profile-intro', { 
+  delay: 200, 
+  origin: 'right',
+  distance: '60px' 
+});
+ScrollReveal().reveal('.timeline-content', { 
+  delay: 300, 
+  origin: 'right'
+});
+ScrollReveal().reveal('#contact h3', { 
+  delay: 200, 
+  origin: 'right',
+  distance: '60px' 
+});
+ScrollReveal().reveal('.contact-details', { 
+  delay: 300, 
+  origin: 'bottom', 
+  interval: 200
+});
+
+
