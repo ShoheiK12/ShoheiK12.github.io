@@ -10,7 +10,7 @@ function get_calc(btn) {
       display.classList.add("error");
     } else {
       try {
-        // ×と÷を計算可能に変換してeval
+        // Convert × and ÷ into a computable format and then evaluate.
         const safeExpression = expression.replace(/×/g, "*").replace(/÷/g, "/");
         display.value = eval(safeExpression);
       } catch (e) {
@@ -22,7 +22,7 @@ function get_calc(btn) {
     display.value = "";
 
   } else if (btn.value == "AC") {          
-    // 末尾1文字を削除
+    // Delete the last character.
     display.value = display.value.slice(0, -1);
 
   } else if (btn.value == "%") {
@@ -50,11 +50,12 @@ function get_calc(btn) {
     } 
     display.value += btn.value;
 
-    // 表示用に元のボタン文字に戻す
+    // Revert to the original button for display.
     if (btn.value == "*") document.calculator.multi_btn.value = "×";
     if (btn.value == "/") document.calculator.div_btn.value = "÷";
   }
 }
+
 
 
 
