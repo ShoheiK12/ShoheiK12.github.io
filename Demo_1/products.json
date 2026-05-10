@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "title": "Products",
+    "image": "img/item1.jpg",
+    "price": "$16 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 2,
+    "title": "Products",
+    "image": "img/item2.jpg",
+    "price": "$8 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 3,
+    "title": "Products",
+    "image": "img/item3.jpg",
+    "price": "¥70 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 4,
+    "title": "Products",
+    "image": "img/item4.jpg",
+    "price": "$45 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 5,
+    "title": "Products",
+    "image": "img/item5.jpg",
+    "price": "$30 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 6,
+    "title": "Products",
+    "image": "img/item6.jpg",
+    "price": "$20 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 7,
+    "title": "Products",
+    "image": "img/item7.jpg",
+    "price": "$120 +tax",
+    "description": "Good for cats."
+  },
+  {
+    "id": 8,
+    "title": "Products",
+    "image": "img/item8.jpg",
+    "price": "$100 +tax",
+    "description": "Good for cats."
+  }
+]
