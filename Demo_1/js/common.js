@@ -1,5 +1,5 @@
 /*=================================================
-ハンバーガーメニュー
+Menu animation
 ===================================================*/
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -9,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const mask = document.getElementById('mask');
 
-  // メニュー開閉
+  // Open and Close menu
   toggleBtn.addEventListener('click', () => {
     header.classList.toggle('open');
   });
 
-  // 背景クリックで閉じる
+  // Close menu by clicking background image
   mask.addEventListener('click', () => {
     header.classList.remove('open');
   });
