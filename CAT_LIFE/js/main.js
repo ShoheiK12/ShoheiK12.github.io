@@ -1,52 +1,78 @@
 document.addEventListener('DOMContentLoaded', async() => {
   /*=================================================
-  Initialise Swiper
+  Generate Swiper Slides (Execute only when #swiper-wrapper exists)
   ===================================================*/
-  const swiper = new Swiper(".swiper", {
+  const swiperWrapper = document.getElementById('swiper-wrapper');
 
-    loop: true,
+  if (swiperWrapper) {
+    try {
+      const response = await fetch('./products.json');
+      const products = await response.json();
 
-    speed: 1000,
-
-    autoplay: {
-      delay: 3000,
-    },
-
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-    },
-
-  });
+      products.forEach(product => {
+        const slide = document.createElement('div');
+        slide.className = 'swiper-slide';
+        slide.innerHTML = `
+          <a href="item.html?id=${product.id}">
+            <img src="${product.image}" alt="${product.title}">
+          </a>
+        `;
+        swiperWrapper.appendChild(slide);
+      });
+    } catch (error) {
+      console.error("Data downloading failed:", error);
+    }
+  }
+  /*=================================================
+  Initialise Swiper (Execute only when there is swiper)
+  ===================================================*/
+  const swiperElement = document.querySelector(".swiper");
+  
+  if (swiperElement) {
+    const swiper = new Swiper(".swiper", {
+      loop: true,
+      speed: 1000,
+      autoplay: {
+        delay: 3000,
+      },
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  }
 
   
   /*=================================================
   Generate Product List
   ===================================================*/
-  const response = await fetch('./products.json');
-
-  const products = await response.json();
-
   const productList = document.querySelector('.product-list');
 
-  products.forEach(product => {
+  // Implemet only when .product-list exists.
+  if (productList) {
+    try {
+      const response = await fetch('./products.json');
+      const products = await response.json();
 
-    const li = document.createElement('li');
+      products.forEach(product => {
+        const li = document.createElement('li');
 
-    li.innerHTML = `
-      <a href="item.html?id=${product.id}">
-        <img src="${product.image}" alt="">
-        <p>${product.title}</p>
-        <p>${product.price}</p>
-      </a>
-    `;
+        li.innerHTML = `
+          <a href="item.html?id=${product.id}">
+            <img src="${product.image}" alt="">
+            <p>${product.title}</p>
+            <p>${product.price}</p>
+          </a>
+        `;
 
-    productList.appendChild(li);
-  
-  });
+        productList.appendChild(li);
+      });
+    } catch (error) {
+      console.error("Data downloading failed:", error);
+    }
+  }
 });
