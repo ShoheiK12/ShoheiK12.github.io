@@ -13,6 +13,13 @@ function get_calc(btn) {
         // ×と÷を計算可能に変換してeval
         const safeExpression = expression.replace(/×/g, "*").replace(/÷/g, "/");
         display.value = eval(safeExpression);
+        
+        const result = eval(safeExpression);
+
+        display.value = result;
+
+        // Save calculation history
+        saveHistory(expression, result);
       } catch (e) {
         display.value = "Error";
       }
@@ -55,6 +62,47 @@ function get_calc(btn) {
 }
 
 
+/* =========================
+  History Modal
+========================= */
+
+// Open modal display
+const clockButton = document.querySelector(".clock-button");
+
+const historyModal = document.getElementById("history-modal");
+
+clockButton.addEventListener("click", () => {
+  historyModal.style.display = "flex";
+});
+
+// Close modal display
+const closeModalButton = document.getElementById("close-modal");
+
+closeModalButton.addEventListener("click", () => {
+  document.getElementById("history-modal").style.display = "none";
+});
+
+/* =========================
+  Save calculation history
+========================= */
+
+function getHistory() {
+  return JSON.parse(localStorage.getItem("calcHistory")) || [];
+}
+
+function saveHistory(expression, result) {
+  const history = getHistory();
+
+  const newRecord = {
+    expression: expression,
+    result: result,
+    createdAt: new Date().toISOString()
+  };
+
+  history.push(newRecord);
+
+  localStorage.setItem("calcHistory", JSON.stringify(history));
+}
 
 
 
