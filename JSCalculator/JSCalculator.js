@@ -72,6 +72,7 @@ const clockButton = document.querySelector(".clock-button");
 const historyModal = document.getElementById("history-modal");
 
 clockButton.addEventListener("click", () => {
+  displayHistory();
   historyModal.style.display = "flex";
 });
 
@@ -104,5 +105,58 @@ function saveHistory(expression, result) {
   localStorage.setItem("calcHistory", JSON.stringify(history));
 }
 
+/* =========================
+  Display history in Modal
+========================= */
+
+function displayHistory() {
+
+  const historyList = document.getElementById("history-list");
+
+  // Initialize
+  historyList.innerHTML = "";
+
+  const history = getHistory();
+
+  // Current time
+  const now = new Date();
+
+  // Retrieve only the calc history from the last 7 days.
+  const last7DaysHistory = history.filter((item) => {
+
+    const recordDate = new Date(item.createdAt);
+
+    // Convert to milliseconds
+    const diffTime = now - recordDate;
+
+    // Convert to days
+    const diffDays = diffTime / (1000 * 60 * 60 * 24);
+
+    return diffDays <= 7;
+  });
+
+  // Sort by newest
+  last7DaysHistory.reverse();
+
+  // If no calc histories
+  if (last7DaysHistory.length === 0) {
+    historyList.innerHTML = "<p>No calculation history</p>";
+    return;
+  }
+
+  // Display calc histories
+  last7DaysHistory.forEach((item) => {
+
+    const historyItem = document.createElement("div");
+
+    historyItem.classList.add("history-item");
+
+    historyItem.innerHTML = `
+      <p>${item.expression} = ${item.result}</p>
+    `;
+
+    historyList.appendChild(historyItem);
+  });
+}
 
 
