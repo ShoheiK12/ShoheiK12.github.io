@@ -12,10 +12,9 @@ function get_calc(btn) {
       try {
         // ×と÷を計算可能に変換してeval
         const safeExpression = expression.replace(/×/g, "*").replace(/÷/g, "/");
-        display.value = eval(safeExpression);
-        
         const result = eval(safeExpression);
 
+        // Update display
         display.value = result;
 
         // Save calculation history
@@ -87,75 +86,74 @@ closeModalButton.addEventListener("click", () => {
   Save calculation history
 ========================= */
 
-function getHistory() {
-  return JSON.parse(localStorage.getItem("calcHistory")) || [];
-}
-
-function saveHistory(expression, result) {
-  const history = getHistory();
-
-  const newRecord = {
-    expression: expression,
-    result: result,
-    createdAt: new Date().toISOString()
-  };
-
-  history.push(newRecord);
-
-  localStorage.setItem("calcHistory", JSON.stringify(history));
+async function saveHistory(expression, result) {
+  await window.addDoc(
+    window.collection(window.db, "history"),
+    {
+      expression: expression,
+      result: result,
+      createdAt: window.serverTimestamp()
+    }
+  );
 }
 
 /* =========================
   Display history in Modal
 ========================= */
 
-function displayHistory() {
+async function displayHistory() {
 
   const historyList = document.getElementById("history-list");
-
-  // Initialize
   historyList.innerHTML = "";
 
-  const history = getHistory();
+  const querySnapshot = await window.getDocs(
+    window.collection(window.db, "history")
+  );
 
-  // Current time
   const now = new Date();
+  let history = [];
 
-  // Retrieve only the calc history from the last 7 days.
+  querySnapshot.forEach((doc) => {
+    const data = doc.data();
+
+    let createdAt;
+
+    if (data.createdAt && typeof data.createdAt.toDate === "function") {
+      createdAt = data.createdAt.toDate();
+    } else {
+      createdAt = new Date(data.createdAt);
+    }
+
+    history.push({
+      expression: data.expression,
+      result: data.result,
+      createdAt: createdAt
+    });
+  });
+
+  // Display only 7 days calc histories
   const last7DaysHistory = history.filter((item) => {
-
-    const recordDate = new Date(item.createdAt);
-
-    // Convert to milliseconds
-    const diffTime = now - recordDate;
-
-    // Convert to days
+    const diffTime = now - item.createdAt;
     const diffDays = diffTime / (1000 * 60 * 60 * 24);
-
     return diffDays <= 7;
   });
 
   // Sort by newest
-  last7DaysHistory.reverse();
+  last7DaysHistory.sort((a, b) => b.createdAt - a.createdAt);
 
-  // If no calc histories
   if (last7DaysHistory.length === 0) {
     historyList.innerHTML = "<p>No calculation history</p>";
     return;
   }
-
-  // Display calc histories
+  
+  // Display result
   last7DaysHistory.forEach((item) => {
+    const div = document.createElement("div");
+    div.classList.add("history-item");
 
-    const historyItem = document.createElement("div");
+    div.innerHTML = `<p>${item.expression} = ${item.result}</p>`;
 
-    historyItem.classList.add("history-item");
-
-    historyItem.innerHTML = `
-      <p>${item.expression} = ${item.result}</p>
-    `;
-
-    historyList.appendChild(historyItem);
+    historyList.appendChild(div);
   });
 }
 

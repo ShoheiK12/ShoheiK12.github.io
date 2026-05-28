@@ -78,6 +78,35 @@
 
     </div>
 
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+      import { getFirestore, collection, addDoc, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyCv2ZMhkyzkZBqHt1rt__WIhKluBBv0WIU",
+        authDomain: "jscalculator-b3703.firebaseapp.com",
+        projectId: "jscalculator-b3703",
+        storageBucket: "jscalculator-b3703.firebasestorage.app",
+        messagingSenderId: "564746679187",
+        appId: "1:564746679187:web:4a2487e20de85dad8a6e66"
+      };
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+      
+      // Global
+      window.db = db;
+      window.collection = collection;
+      window.addDoc = addDoc;
+      window.getDocs = getDocs;
+      window.serverTimestamp = serverTimestamp;
+    </script>
+
     <script src="./JSCalculator.js"></script>
   </body>
 
