@@ -13,10 +13,13 @@ document.addEventListener('DOMContentLoaded', async() => {
         const slide = document.createElement('div');
         slide.className = 'swiper-slide';
         slide.innerHTML = `
-          <a href="item.html?id=${product.id}">
-            <img src="${product.image}" alt="${product.title}">
-          </a>
+        <img src="${product.image}" alt="${product.title}" style="cursor: pointer;">
         `;
+
+        const img = slide.querySelector('img');
+        img.addEventListener('click', () => {
+          window.location.href = `item.html?id=${product.id}`;
+        });
         swiperWrapper.appendChild(slide);
       });
     } catch (error) {
@@ -61,16 +64,19 @@ document.addEventListener('DOMContentLoaded', async() => {
       products.forEach(product => {
         const li = document.createElement('li');
 
-        li.innerHTML = `
-          <a href="item.html?id=${product.id}">
-            <img src="${product.image}" alt="">
-            <p>${product.title}</p>
-            <p>${product.price}</p>
-          </a>
-        `;
+      li.innerHTML = `
+        <img src="${product.image}" alt="" style="cursor: pointer;">
+        <p>${product.title}</p>
+        <p>${product.price}</p>
+      `;
 
-        productList.appendChild(li);
+      const img = li.querySelector('img');
+      img.addEventListener('click', () => {
+        window.location.href = `item.html?id=${product.id}`;
       });
+
+      productList.appendChild(li);
+    });
     } catch (error) {
       console.error("Data downloading failed:", error);
     }
