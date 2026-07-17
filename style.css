@@ -94,9 +94,7 @@ li {
   background: var(--dark-color) !important;
 }
 
-/*-------------------------------------------
-Header
--------------------------------------------*/
+/* Header */
 #header {
   position: fixed;
   top: 0;
@@ -128,9 +126,7 @@ header.wrapper {
   cursor: pointer;
 } 
 
-/*-------------------------------------------
-Nav
--------------------------------------------*/
+/* Nav */
 .nav {
   position: static;          
   display: block;            
@@ -169,9 +165,7 @@ Nav
   background: white;
 } 
 
-/*-------------------------------------------
-Mainvisual
--------------------------------------------*/
+/* Mainvisual */
 #mainvisual {
   position: relative; 
   width: 100%;
@@ -284,9 +278,7 @@ body.dark-mode .star-container {
   color: orange;
 }
 
-/*-------------------------------------------
-Top
--------------------------------------------*/
+/* Top */
 #top {
   justify-content: center;
   scroll-margin-top: 100px;
@@ -313,9 +305,7 @@ Top
   text-align: left;
 }
 
-/*-------------------------------------------
-About
--------------------------------------------*/
+/* About */
 #about {
   scroll-margin-top: 100px;
 }
@@ -335,9 +325,7 @@ About
   text-align: left;
 }
 
-/*-------------------------------------------
-Projects
--------------------------------------------*/
+/* Projects */
 #projects {
   scroll-margin-top: 100px;
 }
@@ -404,9 +392,7 @@ Projects
   transition: transform 0.3s ease-out;
 }
 
-/*-------------------------------------------
-Profile
--------------------------------------------*/
+/* Profile */
 .profile-intro {
   text-align: center;
   margin-bottom: 2rem;
@@ -452,9 +438,8 @@ body.dark-mode .timeline-content {
   background: #3498db;
   border-radius: 50%;
 }
-/*-------------------------------------------
-Contact
--------------------------------------------*/
+
+/* Contact */
 #contact {
   scroll-margin-top: 100px;
 }
@@ -472,18 +457,14 @@ Contact
  margin: 0 20px;
 }
 
-/*-------------------------------------------
-footer
--------------------------------------------*/
+/* Footer */
 #footer {
   font-size: 1rem;
   padding: 10px 0;
   text-align: center;
 }
 
-/*-------------------------------------------
-project.html
--------------------------------------------*/
+/* project.html */
 .project-headline {
   color: #364e96;
   text-align: center;
@@ -494,13 +475,13 @@ project.html
 }
 
 .project-name {
-  color: #505050;/*文字色*/
-  padding: 0.5em;/*文字周りの余白*/
-  display: inline-block;/*おまじない*/
-  line-height: 1.3;/*行高*/
-  background: #dbebf8;/*背景色*/
+  color: #505050;
+  padding: 0.5em;
+  display: inline-block;
+  line-height: 1.3;
+  background: #dbebf8;
   vertical-align: middle;
-  border-radius: 25px 0px 0px 25px;/*左側の角を丸く*/
+  border-radius: 25px 0px 0px 25px;
 }
 
 .project-name:before {
@@ -543,21 +524,15 @@ project.html
   transform: translateY(-2px);
 }
 
-/*-------------------------------------------
-SP
--------------------------------------------*/
+/* SP */
 @media screen and (max-width: 600px) {
 
-  /*-------------------------------------------
-  Mainvisual
-  -------------------------------------------*/
+  /* Mainvisual */
   #mainvisual img {
     height: calc(100vh - 60px);
   }
 
-  /*-------------------------------------------
-  About
-  -------------------------------------------*/
+  /* About */
   #about .content {
     flex-direction: column;
   }
