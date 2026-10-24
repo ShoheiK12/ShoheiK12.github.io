@@ -169,7 +169,7 @@ header.wrapper {
 }
 
 .nav-link a:hover {
-  background: white;
+  background: rgba(229, 185, 102, 0.831);
 } 
 
 /* Mainvisual */
@@ -437,7 +437,7 @@ body.dark-mode .star-container {
   position: relative;
   margin: 2rem 0;
   padding-left: 2rem;
-  border-left: 3px solid #3498db;
+  border-left: 3px solid #158b2b
 }
 .timeline-item {
   margin-bottom: 2rem;
@@ -445,7 +445,7 @@ body.dark-mode .star-container {
 }
 .timeline-date {
   font-weight: bold;
-  color: #3498db;
+  color: #158b2b;
   margin-bottom: 0.3rem;
 }
 .timeline-content {
@@ -468,7 +468,7 @@ body.dark-mode .timeline-content {
   top: 0.3rem;
   width: 12px;
   height: 12px;
-  background: #3498db;
+  background: #158b2b;
   border-radius: 50%;
 }
 
